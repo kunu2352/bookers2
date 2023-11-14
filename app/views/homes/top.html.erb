@@ -1,8 +1,4 @@
-      <% if user_signed_in? %>
-      
-      <%= render 'books/list', book: @book %>
-       
-      <% else %>
+
         <h1>welcome to Bookers !!</h1>
        <p>  In Bookers,</p>
        <p> you can share and exchange your opinions , inpressions , and <br>about various books!</br> </p>
@@ -12,4 +8,3 @@
         <div>
           <%= link_to "Log In", new_user_session_path %> 
         </div>
-      <% end %>
