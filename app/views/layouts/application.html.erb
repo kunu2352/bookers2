@@ -5,46 +5,51 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/7af9148cf8.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <ul>
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to "Home", user_path(current_user.id) %> 
-        </li>
-        <li>
-          <%= link_to "Users", users_path %> 
-        </li>
-        <li>
-          <%= link_to "Books", books_path %> 
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+       <div class="container">
+         <span>Bookers</span>
+         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul　class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li　class="nav-item">
+              <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-white text-light' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "Users", users_path, class: 'nav-link text-white' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "Books", books_path, class: 'nav-link text-white' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+            
+            
+            <% else %>
+            <li　class="nav-item">
+              <%= link_to "Home", root_path, class: 'nav-link text-white text-light' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "About", about_path, class: 'nav-link text-white text-light' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "Sign_up", new_user_registration_path, class: 'nav-link text-white text-light' %> 
+            </li>
+            <li　class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: 'nav-link text-white text-light' %> 
+            </li>
+            
+            <% end %>
+          </ul>
+          </nav>
         
-        
-        <% else %>
-        <li>
-          <%= link_to "Home", root_path %> 
-        </li>
-        <li>
-          <%= link_to "About", about_path %> 
-        </li>
-        <li>
-          <%= link_to "Sign_up", new_user_registration_path %> 
-        </li>
-        <li>
-          <%= link_to "Log In", new_user_session_path %> 
-        </li>
-        
-        <% end %>
-      </ul>
-      
     </header>
     
     
