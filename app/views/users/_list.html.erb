@@ -1,5 +1,23 @@
 
-<h1>User info</h1>
+<h2>User info</h2>
 <%= image_tag user.get_profile_image(100,100) %>
-<p>name<%= user.name %></p>
-<p>introduction<%= user.introduction %></p>
+<table class="table">
+    <tbody>
+        <tr></tr>
+        <tr>
+            <th>name</th>
+            <th><%= user.name %></th>
+        </tr>
+        <tr>
+            <th>introduction</th>
+            <th><%= user.introduction %></th>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <% if user.id == current_user.id %>
+    <%= link_to "Edit", edit_user_path(user.id), class:"btn btn-outline-secondary btn-block edit_user_path(user.id)" %>
+    <% else %>
+    <%= link_to "Edit", user_path(current_user.id) %>
+    <% end %>
+</div>
